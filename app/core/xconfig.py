@@ -25,6 +25,8 @@ class XConfig(object):
             config_file = "prod.env"
         elif env_type == "test":
             config_file = "test.env"
+        else:
+            config_file = "test.env"
 
         # 通过python-dotenv加载指定的配置文件
         load_dotenv(dotenv_path=config_file)

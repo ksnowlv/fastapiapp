@@ -11,9 +11,8 @@ COPY . /app
 RUN pip install --no-cache-dir -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple/
 
 # 加载测试环境的环境变量文件
-COPY test.env .env
+COPY test.env test.env
 
-RUN test
 # 暴露端口
 #EXPOSE 8081
 

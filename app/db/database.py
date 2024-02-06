@@ -8,6 +8,8 @@ SessionLocal = None
 Base = declarative_base()
 
 def get_db() :
+    return
+
 
     global db
     global SessionLocal
@@ -21,6 +23,7 @@ def get_db() :
 def init_db(mysql_url: str):
 
     print(f"mysql_url:{mysql_url}")
+    return
     engine = create_engine(mysql_url)
 
     Base.metadata.create_all(bind=engine)

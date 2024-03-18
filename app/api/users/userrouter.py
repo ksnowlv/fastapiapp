@@ -27,7 +27,7 @@ async def regist(user: UserCreate, db: Session = Depends(get_db)):
     user_dbmodel = UserDbModel(db)
     existing_user = user_dbmodel.get_user_by_phone(user.phone)
 
-    if existing_user:
+    if existing_user is None:
         response_data = {
             "registResult": 0,
             "userid": "",

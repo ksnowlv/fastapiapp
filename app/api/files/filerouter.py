@@ -9,7 +9,7 @@ from starlette.responses import StreamingResponse
 
 from ..models.responsemodel import ResponseBaseModel, ResponseNotFoundModel
 from ...core.xlogger import xlogger
-from ...core.xfastdfs import XFastDFS
+# from ...core.xfastdfs import XFastDFS
 from ...db.xgridfs import XGridFS
 from ...utils.md5utils import md5_by_data
 

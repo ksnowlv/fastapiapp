@@ -4,8 +4,8 @@ from fastapi import FastAPI
 from app.core import xconfig
 from app.core.middleware import init_middleware
 from app.api import init_routers
-# from app.db.database import init_db
-# from app.core.xredis import init_redis, close_redis
+from app.db.database import init_db
+from app.core.xredis import init_redis, close_redis
 # from app.db.xgridfs import XGridFS
 from app.core.xconfig import XConfig, Settings
 #
@@ -19,8 +19,7 @@ def create_app():
     app = FastAPI(title=XConfig.PROJECT_NAME, debug=XConfig.debug(), version=XConfig.VERSION)
     init_middleware(app)
     print("init_middleware")
-    # init_db(XConfig.mysql_database_url())
-
+    init_db(XConfig.mysql_database_url())
     init_routers(app)
     print("init_routers")
     return app
@@ -31,7 +30,7 @@ app = create_app()
 
 @app.on_event("startup")
 async def startup():
-    # await init_redis(XConfig.redis_url())
+     # await init_redis(XConfig.redis_url())
     # XGridFS.shared_gridfs()
     # XFastDFS.fast_dfs()
     # XHDFS.hdfs()
